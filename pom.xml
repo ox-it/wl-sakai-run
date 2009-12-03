@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>uk.ac.ox.oucs.vle</groupId>
+  <artifactId>sakai-run</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Maven Quick Start Archetype</name>
+  <url>http://maven.apache.org</url>
+  <repositories>
+    <repository>
+      <id>thirdparty</id>
+      <name>Maven Repo Third Party</name>
+      <layout>default</layout>
+      <url>http://maven-repo.oucs.ox.ac.uk/content/repositories/thirdparty</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <dependencies>
+    <dependency>
+      <groupId>apache.tomcat</groupId>
+      <artifactId>tomcat</artifactId>
+      <version>5.5.28</version>
+      <scope>runtime</scope>
+      <type>zip</type>
+    </dependency>
+    <dependency>
+      <groupId>org.sakaiproject</groupId>
+      <artifactId>pack-build</artifactId>
+      <version>2.6-SNAPSHOT</version>
+      <scope>runtime</scope>
+      <type>zip</type>
+      <classifier>tomcat-overlay</classifier>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-dependencies</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/tomcat</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
