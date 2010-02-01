@@ -13,4 +13,5 @@ if [ -d $CATALINA_HOME ] ; then
     echo yey
   fi
   kill $tail_pid
+  wait $tail_pid
 fi
