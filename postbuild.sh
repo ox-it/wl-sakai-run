@@ -9,7 +9,7 @@ if [ -d $CATALINA_HOME ] ; then
   mkfifo $WORKSPACE/target/log-fifo
   tail -f $WORKSPACE/target/tomcat/logs/catalina.out | tee $WORKSPACE/target/log-fifo &
   tail_pid=$!
-  if [ grep -q "Server startup in " < $WORKSPACE/target/log-fifo ]; then
+  if grep -q "Server startup in " < $WORKSPACE/target/log-fifo ; then
     echo yey
   fi
   kill $tail_pid
