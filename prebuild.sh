@@ -13,7 +13,7 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   db=sakai-run
   (mysql $db -e 'show tables' -sN | while read table
   do
-    echo DROP TABLE $table;
+    echo "DROP TABLE $table;"
   done) | mysql $db
  
 fi
