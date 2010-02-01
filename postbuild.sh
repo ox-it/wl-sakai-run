@@ -14,5 +14,7 @@ if [ -d $CATALINA_HOME ] ; then
   fi
   echo $tail_pid
   kill $tail_pid
+  # Make sure tail dies 
+  echo die die die tail..... >> $WORKSPACE/target/tomcat/logs/catalina.out
   wait $tail_pid
 fi
