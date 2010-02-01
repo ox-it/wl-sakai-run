@@ -10,7 +10,7 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   
   # Current user needs access to the database
   # -s No boxing -N No column names
-  db=test
+  db=sakai-run
   (mysql $db -e 'show tables' -sN | while read table
   do
     echo DROP TABLE $table;
