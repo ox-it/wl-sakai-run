@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Script executed after the build
 
 . $WORKSPACE/common.sh
