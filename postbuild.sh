@@ -4,8 +4,8 @@
 . common.sh
 if [ -d $CATALINA_HOME ] ; then
   mkdir -p target/tomcat/sakai/
-  svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/
-  svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/
+  svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/sakai.properties
+  svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
   chmod +x $CATALINA_HOME/bin/*.sh
   # http://issues.hudson-ci.org/browse/HUDSON-2729
   BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
