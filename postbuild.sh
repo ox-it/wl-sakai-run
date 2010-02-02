@@ -9,7 +9,7 @@ if [ -d $CATALINA_HOME ] ; then
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
 
   # Remove existing tomcat webapps
-  find target/tomcat/webapps -type d -maxdepth 1 | xargs rm -rf 
+  find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 | xargs rm -rf 
   # Fix the startup scripts
   chmod +x $CATALINA_HOME/bin/*.sh
   # http://issues.hudson-ci.org/browse/HUDSON-2729
