@@ -9,7 +9,7 @@ if [ -d $CATALINA_HOME ] ; then
   svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/sakai.properties
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
   # Show the build version that we're running.
-  echo local.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
+  echo version.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
 
   # Remove existing tomcat webapps
   find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 | xargs rm -rf 
