@@ -16,8 +16,15 @@ if [ -d $CATALINA_HOME ] ; then
   find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 | xargs rm -rf 
   # Fix the startup scripts
   chmod +x $CATALINA_HOME/bin/*.sh
+
+  # Start tomcat (with or without debug mode enabled)
   # http://issues.hudson-ci.org/browse/HUDSON-2729
-  BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
+  if [ -z $JPDA_ADDRESS ] ; then
+    BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
+  else
+    BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh debug start
+  fi
+
   mkfifo target/log-fifo
   tail -f target/tomcat/logs/catalina.out | tee  target/log-fifo &
   if grep -q "Server startup in " < target/log-fifo ; then
