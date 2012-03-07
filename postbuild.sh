@@ -19,9 +19,10 @@ if [ -d $CATALINA_HOME ] ; then
 
   # Start tomcat (with or without debug mode enabled)
   # http://issues.hudson-ci.org/browse/HUDSON-2729
-  if [ -z $JPDA_ADDRESS ] ; then
+  if [ -z $JPDA_PORT ] ; then
     BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
   else
+	JPDA_ADDRESS="localhost:${JPDA_PORT}"
     BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh jpda start
   fi
 
