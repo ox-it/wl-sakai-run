@@ -22,7 +22,7 @@ if [ -d $CATALINA_HOME ] ; then
   if [ -z $JPDA_PORT ] ; then
     BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
   else
-	JPDA_ADDRESS="localhost:${JPDA_PORT}"
+    export JPDA_ADDRESS="127.0.0.1:${JPDA_PORT}"
     BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh jpda start
   fi
 
