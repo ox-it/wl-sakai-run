@@ -22,7 +22,7 @@ if [ -d $CATALINA_HOME ] ; then
   if [ -z $JPDA_ADDRESS ] ; then
     BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh start
   else
-    BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh debug start
+    BUILD_ID=dontKillMe $CATALINA_HOME/bin/catalina.sh jpda start
   fi
 
   mkfifo target/log-fifo
