@@ -12,8 +12,8 @@ if [ -d $CATALINA_HOME ] ; then
   # Show the build version that we're running.
   echo version.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
 
-  # Remove existing tomcat webapps
-  find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 | xargs rm -rf 
+  # Remove existing tomcat webapps except solr
+  find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 -not -name solr | xargs rm -rf 
   # Fix the startup scripts
   chmod +x $CATALINA_HOME/bin/*.sh
 
