@@ -15,7 +15,7 @@ if [ -d $CATALINA_HOME ] ; then
   # Copy any archived files back
   if [ -f /tmp/${BUILD_TAG}.tgz ]; then
     mkdir -p ${CATALINA_HOME/sakai/files/
-    tar -zxf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME/sakai/files/
+    tar -zxf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME}/sakai/files/
   fi
 
   # Remove existing tomcat webapps except solr

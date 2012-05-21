@@ -19,7 +19,9 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
     done) | mysql $db
   else
     # Keep the sakai files.
-    tar zcf /tmp/${BUILD_TAG}.tgz ${CATALINA_HOME}/sakai/files/
+    if [ -d ${CATALINA_HOME}/sakai/files/ ]; then
+      tar zcf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME}/sakai/files/ .
+    fi
   fi
  
 fi
