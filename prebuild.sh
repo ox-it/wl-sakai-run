@@ -10,11 +10,16 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   
   # Current user needs access to the database
   # -s No boxing -N No column names
-  db=${DB_NAME}
-  ( echo "SET foreign_key_checks = 0;"
-  mysql $db -e 'show tables' -sN | while read table
-  do
-    echo "DROP TABLE $table;"
-  done) | mysql $db
+  if [ ! ${CONTENT_KEEP} ]; then
+    db=${DB_NAME}
+    ( echo "SET foreign_key_checks = 0;"
+    mysql $db -e 'show tables' -sN | while read table
+    do
+      echo "DROP TABLE $table;"
+    done) | mysql $db
+  else
+    # Keep the sakai files.
+    tar zcf /tmp/${BUILD_TAG}.tgz ${CATALINA_HOME}/sakai/files/
+  fi
  
 fi

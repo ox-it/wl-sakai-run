@@ -12,6 +12,12 @@ if [ -d $CATALINA_HOME ] ; then
   # Show the build version that we're running.
   echo version.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
 
+  # Copy any archived files back
+  if [ -f /tmp/${BUILD_TAG}.tgz ]; then
+    mkdir -p ${CATALINA_HOME/sakai/files/
+    tar -zxf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME/sakai/files/
+  fi
+
   # Remove existing tomcat webapps except solr
   find target/tomcat/webapps -type d -maxdepth 1 -mindepth 1 -not -name solr | xargs rm -rf 
   # Fix the startup scripts
