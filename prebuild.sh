@@ -10,7 +10,7 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   
   # Current user needs access to the database
   # -s No boxing -N No column names
-  if [ "${CONTENT_KEEP}" -ne "true" ]; then
+  if [ "${CONTENT_KEEP}" != "true" ]; then
     echo Cleaning database
     db=${DB_NAME}
     ( echo "SET foreign_key_checks = 0;"
