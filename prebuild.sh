@@ -11,6 +11,7 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   # Current user needs access to the database
   # -s No boxing -N No column names
   if [ ! ${CONTENT_KEEP} ]; then
+    echo Cleaning database
     db=${DB_NAME}
     ( echo "SET foreign_key_checks = 0;"
     mysql $db -e 'show tables' -sN | while read table
@@ -20,6 +21,7 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   else
     # Keep the sakai files.
     if [ -d ${CATALINA_HOME}/sakai/files/ ]; then
+      echo Backing up uploaded content
       tar zcf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME}/sakai/files/ .
     fi
   fi
