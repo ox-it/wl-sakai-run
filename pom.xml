@@ -70,7 +70,11 @@
                   <directory>src/main/tomcat</directory>
                   <filtering>true</filtering>
                 </resource>
-              </resources>              
+              </resources>
+              <nonFilteredFileExtensions>
+                <nonFilteredFileExtension>jar</nonFilteredFileExtension>
+                <nonFilteredFileExtension>war</nonFilteredFileExtension>
+              </nonFilteredFileExtensions>
             </configuration>            
           </execution>
         </executions>
