@@ -9,6 +9,7 @@ if [ -d $CATALINA_HOME ] ; then
   svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/sakai.properties
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
   sed -i "s/DB_NAME/${DB_NAME}/" target/tomcat/sakai/local.properties
+  sed -i "s/SOLR_URL/${SOLR_URL}/" target/tomcat/sakai/local.properties
   # Show the build version that we're running.
   echo version.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
 
