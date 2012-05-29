@@ -12,3 +12,4 @@ HTTPS_PORT - The port on which HTTPS requests are handled.
 DB_NAME - The name of the MySQL database which should be used.
 JPDA_PORT - The port in which JDPA debugger is started.
 CONTENT_KEEP - If true then we don't clean the database and attempt to keep the uploaded files.
+SOLR_URL - Solr url to enable search with Solr
