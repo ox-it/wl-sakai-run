@@ -8,6 +8,7 @@ if [ -d $CATALINA_HOME ] ; then
   # Grab config from svn
   svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/sakai.properties
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
+  svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/solr-config target/tomcat/solr/conf
   sed -i "s/DB_NAME/${DB_NAME}/" target/tomcat/sakai/local.properties
   sed -i "s|SEARCH_SOLR_URL|${SEARCH_SOLR_URL}|" target/tomcat/sakai/local.properties
   sed -i "s/TURNITIN_AID/${TURNITIN_AID:-69293}/" target/tomcat/sakai/local.properties
