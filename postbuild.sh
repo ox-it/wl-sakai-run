@@ -50,4 +50,7 @@ if [ -d $CATALINA_HOME ] ; then
   echo $tail_pid
   kill $tail_pid
   wait $tail_pid
+
+  # Clean up the file we copied to /tmp
+  rm /tmp/${BUILD_TAG}.tgz
 fi
