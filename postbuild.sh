@@ -24,6 +24,8 @@ if [ -d $CATALINA_HOME ] ; then
   if [ -f /tmp/${BUILD_TAG}.tgz ]; then
     mkdir -p ${CATALINA_HOME}/sakai/files/
     tar -zxf /tmp/${BUILD_TAG}.tgz -C ${CATALINA_HOME}/sakai/files/
+    # Clean up the file we copied to /tmp
+    rm /tmp/${BUILD_TAG}.tgz
   fi
 
   # Remove existing tomcat webapps except solr
@@ -51,6 +53,4 @@ if [ -d $CATALINA_HOME ] ; then
   kill $tail_pid
   wait $tail_pid
 
-  # Clean up the file we copied to /tmp
-  rm /tmp/${BUILD_TAG}.tgz
 fi
