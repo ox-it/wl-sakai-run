@@ -53,4 +53,18 @@ if [ -d $CATALINA_HOME ] ; then
   kill $tail_pid
   wait $tail_pid
 
+  sleep 5
+
+  # Most builds don't define a HTTP port.
+  # So take the HTTPS PORT and attempt to switch to HTTP.
+  if [ -z "${HTTP_PORT}" ]; then
+    HTTP_PORT=$(echo $HTTPS_PORT| sed 's/443/080/')
+  fi
+
+  # See if we can connect
+  curl -s -f -m 10 -o /dev/null http://localhost:${HTTP_PORT}/portal/ ; then
+  if [ $? -ne 0 ]; then
+    echo "Can't connect to Tomcat" && exit 1
+  fi
+
 fi
