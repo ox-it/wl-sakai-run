@@ -9,8 +9,8 @@ if [ -d $CATALINA_HOME -a -f $CATALINA_PID ] ; then
   fi
 
   # See if we still have a pid associated with our AJP_PORT
-  pid=$(netstat -telpW | grep :${AJP_PORT} | awk '{print $9;}' | sed 's@/.*@@')
-  if [ -z "$pid" ]; then
+  pid=$(netstat -telpW | grep ":${AJP_PORT}" | awk '{print $9;}' | sed 's@/.*@@')
+  if [ -n "$pid" ]; then
     echo Killing Tomcat with PID of $pid
     kill -9 $pid
   fi
