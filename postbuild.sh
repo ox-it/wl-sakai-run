@@ -62,7 +62,7 @@ if [ -d $CATALINA_HOME ] ; then
   fi
 
   # See if we can connect
-  curl -s -f -m 10 -o /dev/null http://localhost:${HTTP_PORT}/portal/ ; then
+  curl -s -f -m 10 -o /dev/null http://localhost:${HTTP_PORT}/portal/
   if [ $? -ne 0 ]; then
     echo "Can't connect to Tomcat" && exit 1
   fi
