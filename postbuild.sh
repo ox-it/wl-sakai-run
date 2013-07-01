@@ -16,6 +16,7 @@ if [ -d $CATALINA_HOME ] ; then
   sed -i "s/TURNITIN_SECRET/${TURNITIN_SECRET:-OUCSsKey}/" target/tomcat/sakai/local.properties
   sed -i "s|TURNITIN_API_URL|${TURNITIN_API_URL:-'https://sandbox.turnitin.com/api.asp'}|" target/tomcat/sakai/local.properties
   sed -i "s|SENTRY_DSN|${SENTRY_DSN}|" target/tomcat/common/classes/log4j.properties
+  sed -i "s|SES_SOLR_URL|${SES_SOLR_URL}|" target/tomcat/sakai/local.properties
 
   # Show the build version that we're running.
   echo version.service=$BUILD_TAG >> target/tomcat/sakai/local.properties
