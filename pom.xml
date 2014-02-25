@@ -27,9 +27,9 @@
       <type>zip</type>
     </dependency>
     <dependency>
-      <groupId>org.sakaiproject</groupId>
+      <groupId>org.sakaiproject.pack</groupId>
       <artifactId>pack-build</artifactId>
-      <version>10-SNAPSHOT</version>
+      <version>10.0-SNAPSHOT</version>
       <scope>runtime</scope>
       <type>zip</type>
       <classifier>tomcat-overlay</classifier>
