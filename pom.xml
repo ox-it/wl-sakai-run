@@ -20,9 +20,9 @@
   </repositories>
   <dependencies>
     <dependency>
-      <groupId>apache.tomcat</groupId>
+      <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat</artifactId>
-      <version>5.5.28</version>
+      <version>7.0.50</version>
       <scope>runtime</scope>
       <type>zip</type>
     </dependency>
