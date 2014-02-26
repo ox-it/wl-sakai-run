@@ -3,6 +3,14 @@
 
 . common.sh
 if [ -d $CATALINA_HOME ] ; then
+
+  # Set up custom class loaders
+  sed -i.orig '/^common.loader=/s@$@,${catalina.base}/common/classes/,${catalina.base}/common/lib/*.jar@
+/^shared.loader=/s@$@${catalina.base}/shared/classes/,${catalina.base}/shared/lib/*.jar@
+/^server.loader=/s@$@${catalina.base}/server/classes/,${catalina.base}/server/lib/*.jar@' target/tomcat/conf/catalina.properties
+
+  mkdir -p target/tomcat/shared/classes target/tomcat/shared/lib target/tomcat/common/classes target/tomcat/common/lib target/tomcat/server/classes target/tomcat/server/lib target/tomcat/logs
+
   mkdir -p target/tomcat/sakai/
 
   # Grab config from svn
