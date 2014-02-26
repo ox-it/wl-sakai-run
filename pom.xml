@@ -7,6 +7,9 @@
   <version>1.0-SNAPSHOT</version>
   <name>Sakai Run</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <tomcat.version>7.0.50</tomcat.version>
+  </properties>
   <repositories>
     <repository>
       <id>thirdparty</id>
@@ -22,7 +25,7 @@
     <dependency>
       <groupId>org.apache.tomcat</groupId>
       <artifactId>tomcat</artifactId>
-      <version>7.0.50</version>
+      <version>${tomcat.version}</version>
       <scope>runtime</scope>
       <type>zip</type>
     </dependency>
@@ -54,6 +57,26 @@
         </executions>
       </plugin>
       <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <configuration>
+              <tasks>
+                <move todir="${project.build.directory}/tomcat" overwrite="false">
+                  <fileset dir="${project.build.directory}/tomcat/apache-tomcat-${tomcat.version}"/>
+                </move>
+                <delete dir="${project.build.directory}/tomcat/apache-tomcat-${tomcat.version}"/>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <executions>
           <execution>
@@ -65,7 +88,7 @@
             </goals>
             <configuration>
               <outputDirectory>${basedir}/target/tomcat</outputDirectory>
-              <resources>          
+              <resources>
                 <resource>
                   <directory>src/main/tomcat</directory>
                   <filtering>true</filtering>
@@ -75,7 +98,7 @@
                 <nonFilteredFileExtension>jar</nonFilteredFileExtension>
                 <nonFilteredFileExtension>war</nonFilteredFileExtension>
               </nonFilteredFileExtensions>
-            </configuration>            
+            </configuration>
           </execution>
         </executions>
       </plugin>
