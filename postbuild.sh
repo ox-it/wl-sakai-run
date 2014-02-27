@@ -5,7 +5,9 @@
 if [ -d $CATALINA_HOME ] ; then
 
   # Set up custom class loaders
-  sed -i.orig '/^common.loader=/s@$@,${catalina.base}/common/classes/,${catalina.base}/common/lib/*.jar@
+  sed -i.orig '
+s///
+/^common.loader=/s@$@,${catalina.base}/common/classes/,${catalina.base}/common/lib/*.jar@
 /^shared.loader=/s@$@${catalina.base}/shared/classes/,${catalina.base}/shared/lib/*.jar@
 /^server.loader=/s@$@${catalina.base}/server/classes/,${catalina.base}/server/lib/*.jar@' target/tomcat/conf/catalina.properties
 
