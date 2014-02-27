@@ -17,14 +17,6 @@
 -->
 <Server port="${env.SHUTDOWN_PORT}" shutdown="SHUTDOWN">
 
-  <!-- Comment these entries out to disable JMX MBeans support used for the 
-       administration web application -->
-  <Listener className="org.apache.catalina.core.AprLifecycleListener"/>
-  <Listener className="org.apache.catalina.mbeans.ServerLifecycleListener"/>
-  <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
-  <Listener className="org.apache.catalina.storeconfig.StoreConfigLifecycleListener"/>
-
-
   <!-- A "Service" is a collection of one or more "Connectors" that share
        a single "Container" (and therefore the web applications visible
        within that Container).  Normally, that Container is an "Engine",
