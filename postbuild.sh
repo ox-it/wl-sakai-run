@@ -16,7 +16,7 @@ s///
   mkdir -p target/tomcat/sakai/
 
   # Grab config from svn
-  svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/trunk/sakai.properties target/tomcat/sakai/sakai.properties
+  svn export https://svn.oucs.ox.ac.uk/projects/vle/deployment/debian/sakai/config/branches/10-x//sakai.properties target/tomcat/sakai/sakai.properties
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/local.properties target/tomcat/sakai/local.properties
   svn export https://svn.oucs.ox.ac.uk/projects/vle/sakai/config/trunk/log4j.properties target/tomcat/common/classes/log4j.properties
   svn export --force https://svn.oucs.ox.ac.uk/projects/vle/deployment/solr-config target/tomcat/solr
