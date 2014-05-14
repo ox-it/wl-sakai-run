@@ -9,7 +9,9 @@ export CATALINA_OPTS="-server -Xms256m -Xmx1024m -XX:NewSize=192m -XX:MaxNewSize
 export CATALINA_HOME="$WORKSPACE/target/tomcat/"
 export JAVA_OPTS="$JAVA_OPTS -Dsolr.solr.home=$CATALINA_HOME/solr/"
 # This sets JAVA_HOME to something sensible
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
+# but I'm not sure we want todo this as then we can't use the value from the
+# jenkins job
+# export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:bin/javac::")
 
 # If we have a JMX Port set use that:
 if [ -n "$JMX_PORT" ] ; then
