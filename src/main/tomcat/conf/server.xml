@@ -30,7 +30,7 @@
   <Service name="Catalina">
 
     <!-- Define an AJP 1.3 Connector on port 8009 -->
-    <Connector enableLookups="false" address="127.0.0.1" port="${env.AJP_PORT}" protocol="AJP/1.3" redirectPort="${env.HTTPS_PORT}" tomcatAuthentication="false"/>
+    <Connector enableLookups="false" address="127.0.0.1" port="${env.AJP_PORT}" protocol="AJP/1.3" redirectPort="${env.HTTPS_PORT}" tomcatAuthentication="false" URIEncoding="UTF-8"/>
          
     <!-- Define the top level container in our container hierarchy -->
     <Engine defaultHost="localhost" name="Catalina">
